@@ -9,6 +9,6 @@ services:
       - "15002:15002"
       - "4040:4040"
     volumes:
-      - ./data:/data
+      - ../data:/data
     environment:
       - SPARK_NO_DAEMONIZE=true
