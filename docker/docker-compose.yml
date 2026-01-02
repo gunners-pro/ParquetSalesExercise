@@ -1,0 +1,14 @@
+services:
+  spark-connect:
+    image: apache/spark:python3
+    container_name: spark-connect
+    hostname: spark-connect
+    command: >
+      bash -c " export SPARK_NO_DAEMONIZE=true && /opt/spark/sbin/start-connect-server.sh --master 'local[*]' "
+    ports:
+      - "15002:15002"
+      - "4040:4040"
+    volumes:
+      - ./data:/data
+    environment:
+      - SPARK_NO_DAEMONIZE=true
